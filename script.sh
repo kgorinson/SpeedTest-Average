@@ -1,3 +1,4 @@
+
 #clear old results
 rm -rf results.txt
 
@@ -25,9 +26,11 @@ while true;
         echo "----------------------"
 
         echo "Average after - " $runnumber " runs"
-        echo "Ping: " $ping
-        echo "Download: " $download
-        echo "Upload: " $upload 
+        printf "Ping: %0.2f ms\n" $ping
+        printf "Download: %0.2f\n" $download
+        printf "Upload: %0.2f\n" $upload
+        #echo "Download: " $download
+        #echo "Upload: " $upload 
         
         echo "----------------------"
 
