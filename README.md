@@ -2,6 +2,7 @@
 Using https://github.com/rsvp/speedtest-linux this script holds a running average of ping, download, and upload
 
 
+ 
     #clear old results
     rm -rf results.txt
 
@@ -29,12 +30,15 @@ Using https://github.com/rsvp/speedtest-linux this script holds a running averag
         echo "----------------------"
 
         echo "Average after - " $runnumber " runs"
-        echo "Ping: " $ping
-        echo "Download: " $download
-        echo "Upload: " $upload 
+        printf "Ping: %0.2f ms\n" $ping
+        printf "Download: %0.2f\n" $download
+        printf "Upload: %0.2f\n" $upload
+        #echo "Download: " $download
+        #echo "Upload: " $upload 
         
         echo "----------------------"
 
         sleep 1
         
 done;
+
