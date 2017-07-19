@@ -1,3 +1,7 @@
+#To setup
+#install: jq curl
+#echo "$(curl -skLO https://git.io/speedtest.sh && chmod +x speedtest.sh)"
+
 
 #clear old results
 rm -rf results.txt
@@ -5,7 +9,7 @@ rm -rf results.txt
 while true;
     do
         echo "Running speedtest now. Please wait..."
-        ./speedtest | sed -e 's|,||g' >> results.txt
+        ./speedtest.sh | sed -e 's|,||g' >> results.txt
         #awk '{s+=$3}END{print "ave:",s/NR}' RS=" " results.txt
         ping=$(cat results.txt | awk '{print $3}' | jq -s 'add/length')
         download=$(cat results.txt | awk '{print $4}' | jq -s 'add/length')
