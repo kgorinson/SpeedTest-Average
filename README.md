@@ -40,5 +40,5 @@ Using https://github.com/rsvp/speedtest-linux this script holds a running averag
 
         sleep 1
         
-done;
+    done;
 
