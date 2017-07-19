@@ -1,0 +1,67 @@
+#clear old results
+#Tracks changes between runs. Doesn't work yet. Experimental.
+rm -rf results.txt
+
+
+prev_avgping=0
+prev_avgdl=0
+prev_avgul=0
+
+pingchange=0
+dlchange=0
+ulchange=0
+
+
+while true;
+    do
+        echo "Running speedtest now. Please wait..."
+        ./speedtest.sh | sed -e 's|,||g' >> results.txt
+        #awk '{s+=$3}END{print "ave:",s/NR}' RS=" " results.txt
+        ping=$(cat results.txt | awk '{print $3}' | jq -s 'add/length')
+        download=$(cat results.txt | awk '{print $4}' | jq -s 'add/length')
+        upload=$(cat results.txt | awk '{print $5}' | jq -s 'add/length')
+        counter=$((counter+1))
+        
+        #pingchange=$(( ping - prev_avgping ))
+        #dlchange=$(( download - prev_avgdl ))
+        #ulchange=$(( upload - prev_avgul ))
+    
+
+        #pingchange=`expr $ping - $prev_avgping`
+        #dlchange=`expr $download - $prev_avgdl`
+        #ulchange=`expr $upload - $prev_avgul`
+
+        runnumber=$(wc -l results.txt | awk '{print $1}')
+        echo "Current - " $runnumber " run number "
+        currentping=$(cat results.txt | tail -1 | awk '{print $3}')
+        currentdl=$(cat results.txt | tail -1 | awk '{print $4}')
+        currentul=$(cat results.txt | tail -1 | awk '{print $5}')
+        
+        echo "Ping: " $currentping 
+        echo "Download: " $currentdl " MBps"
+        echo "Upload: " $currentul  " MBps"
+
+        echo "----------------------"
+
+        echo "Average after - " $runnumber " runs"
+        printf "Ping: %0.2f - (change) %0.2f \n" $ping $pingchange
+        printf "Download: %0.2f - (change ) %0.2f \n" $download $dlchange
+        printf "Upload: %0.2f - (change) %0.2f \n" $upload $ulchange
+        #echo "Download: " $download
+        #echo "Upload: " $upload 
+        echo "Average after - " $runnumber " runs" > average.txt
+        printf "Ping: %0.2f ms\n" $ping >> average.txt
+        printf "Download: %0.2f Mbps\n" $download >> average.txt
+        printf "Upload: %0.2f Mbps\n" $upload >> average.txt
+
+ 
+        echo "----------------------"
+
+        prev_avgpinf=$ping
+        prev_avgdl=$download
+        prev_avgul=$upload
+
+
+        sleep 1
+        
+done;
