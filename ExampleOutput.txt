@@ -1,0 +1,56 @@
+root@ny:~# ./script.sh 
+Running speedtest now. Please wait...
+Current -  1  run number 
+Ping:  12.646
+Download:  924.59  MBps
+Upload:  6.91  MBps
+----------------------
+Average after -  1  runs
+Ping: 12.65 ms
+Download: 924.59 Mbps
+Upload: 6.91 Mbps
+----------------------
+Running speedtest now. Please wait...
+Current -  2  run number 
+Ping:  12.615
+Download:  917.18  MBps
+Upload:  5.62  MBps
+----------------------
+Average after -  2  runs
+Ping: 12.63 ms
+Download: 920.89 Mbps
+Upload: 6.27 Mbps
+----------------------
+Running speedtest now. Please wait...
+Current -  3  run number 
+Ping:  18.183
+Download:  924.03  MBps
+Upload:  8.68  MBps
+----------------------
+Average after -  3  runs
+Ping: 14.48 ms
+Download: 921.93 Mbps
+Upload: 7.07 Mbps
+----------------------
+Running speedtest now. Please wait...
+Current -  4  run number 
+Ping:  12.51
+Download:  417.67  MBps
+Upload:  20.24  MBps
+----------------------
+Average after -  4  runs
+Ping: 13.99 ms
+Download: 795.87 Mbps
+Upload: 10.36 Mbps
+----------------------
+Running speedtest now. Please wait...
+Current -  5  run number 
+Ping:  12.527
+Download:  779.07  MBps
+Upload:  5.89  MBps
+----------------------
+Average after -  5  runs
+Ping: 13.70 ms
+Download: 792.51 Mbps
+Upload: 9.47 Mbps
+----------------------
