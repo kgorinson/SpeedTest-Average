@@ -9,12 +9,12 @@ rm -rf results.txt
 while true;
     do
         echo "Running speedtest now. Please wait..."
-        ./speedtest.sh | sed -e 's|,||g' >> results.txt
+        speedtest --simple --bytes | sed -e 's|,||g' >> results.txt
         #awk '{s+=$3}END{print "ave:",s/NR}' RS=" " results.txt
         ping=$(cat results.txt | awk '{print $3}' | jq -s 'add/length')
         download=$(cat results.txt | awk '{print $4}' | jq -s 'add/length')
         upload=$(cat results.txt | awk '{print $5}' | jq -s 'add/length')
-        counter=$((counter+1))
+        #counter=$((counter+1))
 
 
         runnumber=$(wc -l results.txt | awk '{print $1}')
