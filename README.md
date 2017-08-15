@@ -1,7 +1,9 @@
 # SpeedTest-Average
 Using https://github.com/rsvp/speedtest-linux this script holds a running average of ping, download, and upload
 
-Requires jq
+Requires jq and curl.
+
+Doesn't work on Mac OS X for some reason, works fine on Ubuntu though.
 
 
  
