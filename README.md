@@ -1,6 +1,8 @@
 # SpeedTest-Average
 Using https://github.com/rsvp/speedtest-linux this script holds a running average of ping, download, and upload
 
+Requires jq
+
 
  
     #clear old results
@@ -9,7 +11,7 @@ Using https://github.com/rsvp/speedtest-linux this script holds a running averag
     while true;
         do
         echo "Running speedtest now. Please wait..."
-        ./speedtest | sed -e 's|,||g' >> results.txt
+        speedtest | sed -e 's|,||g' >> results.txt
         #awk '{s+=$3}END{print "ave:",s/NR}' RS=" " results.txt
         ping=$(cat results.txt | awk '{print $3}' | jq -s 'add/length')
         download=$(cat results.txt | awk '{print $4}' | jq -s 'add/length')
