@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+
 #clear old results
 #Tracks changes between runs. Doesn't work yet. Experimental.
 rm -rf results.txt
