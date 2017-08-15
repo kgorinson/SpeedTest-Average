@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+
 #To setup
 #install: jq curl
 #echo "$(curl -skLO https://git.io/speedtest.sh && chmod +x speedtest.sh)"
